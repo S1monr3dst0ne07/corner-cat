@@ -2,7 +2,6 @@
 import wave
 import subprocess
 import os
-import shutil
 import random
 import sys
 import numpy as np
@@ -26,7 +25,6 @@ while True:
 
 #normalize
 samples = abs_samples / np.max(abs_samples)
-print(samples)
 
 #parse images
 pics = [os.path.join(stills, x) for x in os.listdir(stills) if x.split('.')[1] == 'png']
@@ -55,7 +53,6 @@ p = subprocess.Popen(f"ffmpeg -y -framerate {target_fps} -f rawvideo -pix_fmt rg
 
 print(p)
 
-buffer = bytearray()
 for i, sample in enumerate(samples):
     if cooldown > 0:  cooldown -= 1
     if abs(sample) > 0.1: cooldown = 5
@@ -66,7 +63,6 @@ for i, sample in enumerate(samples):
             
     old = new
 
-    #buffer
     p.stdin.write(pic.tobytes())
     p.stdin.flush()
 
