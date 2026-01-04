@@ -1,7 +1,7 @@
 # Corner Cat
 Corner cat is a simple characters-still talking overlay engine.
 For a given audio file in Wave format, it generates a simple
-WebM overlay video which can make recorded speak feel more animated.
+WebM overlay video which can make recorded speech feel more animated.
 It resamples input audio to match video frame rate, does speech edge detection
 and chooses an appropriate image to match the speech.
 
